@@ -17,10 +17,19 @@ module.exports = function countSameElements(collection) {
     for(var i in collection){
       if(collection[i][0]==value){
         if(collection[i].length==1) count++;
-         else if(collection[i][1]=='['){
-            let num=collection[i].split('[')[1].substring(0,collection[i].split('[')[1].length-1);
-            count +=Number(num);
-         }else count += Number(collection[i][2]);
+         // else if(collection[i][1]=='['){
+         //    let num=collection[i].split('[')[1].substring(0,collection[i].split('[')[1].length-1);
+         //    count +=Number(num);
+         // }else count += Number(collection[i][2]);
+         //
+         else{
+            let strReg = /[0-9]+/i;
+            let match = collection[i].match(strReg);
+            let times = Number(match);
+            count += times;
+          }
+
+         //
       }
 
     }
