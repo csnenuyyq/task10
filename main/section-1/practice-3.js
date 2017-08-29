@@ -2,13 +2,13 @@
 
 module.exports = function collectSameElements(collectionA, collectionB) {
     var same=[];
-    for(var i=0;i<collectionA.length;i++){
-        for(var j=0;j<collectionB.value.length;j++){
-            if(collectionA[i]==collectionB.value[j]){
-                same.push(collectionA[i]);
-                continue;
+
+    collectionA.forEach(function(v1,i1,a1){
+        collectionB.value.forEach(function(v2,i2,a2){
+            if(v1==v2){
+                same.push(v1);
             }
-        }
-    }
+        });
+    });
   return same;
 }
